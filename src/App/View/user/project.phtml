@@ -10,7 +10,7 @@
             <th scope="col">Snapshot</th>
             <th scope="col">Dashboard</th>
             <?php if(auth()->isAdmin()): ?>
-                <th scope="col">Modifier</th>
+                <th scope="col">Action</th>
             <?php endif; ?>
         </tr>
         </thead>
@@ -22,9 +22,9 @@
                 <td data-label="Commentaire"><?= $project['comment'] ?></td>
                 <td data-label="Snapshot"><a href="<?= $project['link_snapshot'] ?>" target="_blank">lien</a></td>
                 <td data-label="Dashboard"><a href="<?= $project['link_dashboard'] ?>" target="_blank">lien</a></td>
-                <?php if(auth()->isAdmin()): ?>
+                <?php if (auth()->superAdmin() || auth()->canEdit() == $project['type_id']) : ?>
                     <td data-label="Modifier">
-                        <button class="toggle-form">Edit</button>
+                        <button class="toggle-form">Modifier</button>
                     </td>
                 <?php endif; ?>
             </tr>
@@ -34,7 +34,6 @@
                         <input type="hidden" name="id" value="<?= $project['id'] ?>">
                         <input type="text" name="name" placeholder="* Projet" class="form-control" pattern=".{3,}" title="Le nom du projet doit contenir au moins 3 caractères" value="<?= htmlspecialchars($project['name']) ?>" required>
                         <input type="text" name="periode" placeholder="Période" class="form-control" value="<?= htmlspecialchars($project['period']) ?>">
-                        <input type="text" name="type_id" placeholder="Type" class="form-control" value="<?= htmlspecialchars($project['type_id']) ?>">
                         <input type="text" name="comment" placeholder="Commentaire" class="form-control" value="<?= htmlspecialchars($project['comment']) ?>">
                         <input type="text" name="link_snapshot" placeholder="Snapshot" class="form-control" value="<?= htmlspecialchars($project['link_snapshot']) ?>">
                         <input type="text" name="link_dashboard" placeholder="Dashboard" class="form-control" value="<?= htmlspecialchars($project['link_dashboard']) ?>">

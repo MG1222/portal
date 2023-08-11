@@ -404,15 +404,16 @@ class UserController extends AbstractController
         // Update session based on the changes.
         if (count($diff) > 0) {
             $_SESSION['alert'] = ['success' => 'Vous avez modifié votre profil avec succès.'];
-            $_SESSION['userFullName'] = $userNew['firstName'] . ' ' . $userNew['lastName'];
         } else {
             $_SESSION['alert'] = ['error' => 'Vous n\'avez pas pu modifié votre profil.'];
         }
+
 
         // Redirect the user or admin to the appropriate dashboard.
         if (auth()->isAdmin()) {
             $this->redirect('/admin-dashboard');
         } else {
+            $_SESSION['userFullName'] = $userNew['firstName'] . ' ' . $userNew['lastName'];
             $this->display('user/my-profile', ['user' => $userNew]);
         }
     }

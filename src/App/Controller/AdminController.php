@@ -224,7 +224,12 @@ class AdminController extends AbstractController
         $users = $modelAdmin->getAllUsers();
         $modelAdmin = new AdminModel();
         $admins = $modelAdmin->getAllAdmins();
+
         $types = $modelAdmin->getAllRolesName();
+
+        unset($types[1], $types[2]);
+
+
 
 
         $this->display('admin/admin-create-project',
@@ -657,6 +662,8 @@ class AdminController extends AbstractController
         $projects = $modelProject->getProjectsByAdminId($id);
         $modelDocument = new DocumentModel();
         $documents = $modelDocument->getDocumentsByAdminId($id);
+
+
 
         $this->display('admin/personal-dashboard', [
             'projects' => $projects,

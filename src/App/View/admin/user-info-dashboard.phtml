@@ -18,6 +18,7 @@
             <p><?= $user['email'] ?></p>
             <?php if (auth()->superAdmin()): ?>
                 <a href="<?= url('/my-profile/edit?id='.$user['id']) ?>">Modifier les informations</a>
+
             <?php endif ?>
         <?php elseif ($admin): ?>
             <h2><?= $admin['firstName'] ?? 'Prénom non renseigné' ?> <?= $admin['lastName'] ?? 'Nom non renseigné' ?></h2>

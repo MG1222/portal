@@ -36,7 +36,10 @@
                         <option value="<?= $role['id'] ?>"><?= $role['type_project'] ?></option>
                     <?php endif; ?>
                 <?php endforeach; ?>
-                <option value="role_new_option">Nouveau rôle</option>
+                <?php if (auth()->superAdmin()) : ?>
+                    <option value="role_new_option">Nouveau rôle</option>
+                <?php endif; ?>
+
             </select>
 
             <input type="text" name="role_new" placeholder="ex. admin synthetic" id="role_new_input" class="form-control">

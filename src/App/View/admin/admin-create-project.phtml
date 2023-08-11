@@ -44,6 +44,7 @@
             <select name="type_id" id="type_id" required class="form-control">
                 <option value="" selected="selected" hidden="hidden">* Type de projet</option>
                 <?php foreach ($types as $type_id => $type_name): ?>
+
                     <option value="<?= $type_id ?>"><?= $type_name ?></option>
                 <?php endforeach; ?>
             </select>

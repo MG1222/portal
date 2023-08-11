@@ -9,7 +9,7 @@ const main = () => {
         changeIcon();
     }
 
-    if (document.querySelector('.flesh-class')) { // Remplacez '.flesh-class' par le bon sélecteur.
+    if (document.querySelector('.success') || document.querySelector('.error')) {
         flesh();
     }
 
