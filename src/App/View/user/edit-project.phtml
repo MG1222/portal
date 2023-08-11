@@ -1,0 +1,18 @@
+<div class="form">
+    <h1>Modifier un projet</h1>
+
+    <div class="form-update-project">
+        <form method="post" action="<?= url('/admin/update-project') ?>">
+            <input type="hidden" name="id" value="<?= $project['id'] ?>">
+
+            <input type="text" name="name" placeholder="* Projet" class="form-control" pattern=".{3,}" title="Le nom du projet doit contenir au moins 3 caractères" value="<?= htmlspecialchars($project['name']) ?>" required>
+
+            <input type="text" name="title" placeholder="Titre" class="form-control" value="<?= htmlspecialchars($project['title'] ?? '') ?>">
+
+            <input type="text" name="comment" placeholder="Commentaire" class="form-control" value="<?= htmlspecialchars($project['comment'] ?? '') ?>">
+
+
+            <input type="submit" value="Enregistrer les modifications" class="btn-form">
+        </form>
+    </div>
+</div>

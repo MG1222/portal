@@ -1,0 +1,58 @@
+<?php if (flashBag()->has('success')): ?>
+    <div class="success">
+        <p class="alert"><?= flashBag()->get('success') ?></p>
+        <span class="bnt-close">x</span>
+    </div>
+<?php elseif (flashBag()->has('error')): ?>
+    <div class="error">
+        <p class="alert"><?= flashBag()->get('error') ?></p>
+        <span class="bnt-close">x</span>
+    </div>
+<?php endif; ?>
+
+
+
+<div class="form">
+    <div class="form-edit">
+        <form method="post" action="<?= url('/my-profile/update') ?>">
+            <input type="hidden" name="id" value="<?= $user['id'] ?>">
+            <label for="email">Email :</label>
+            <input type="text" name="email" value="<?= $user['email'] ?>" placeholder=" * Email">
+            <?php if (auth()->isAdmin()) : ?>
+                <select name="role_id" id="role_id" required>
+                    <option value="" selected="selected" hidden="hidden">* Role</option>
+                    <?php foreach ($roles as $role): ?>
+                        <?php if ($user['role_id'] === $role['id']): ?>
+                            <option value="<?= $role['id'] ?>" selected><?= $role['name'] ?></option>
+                        <?php else: ?>
+                            <option value="<?= $role['id'] ?>"><?= $role['name'] ?></option>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                </select>
+            <?php endif; ?>
+            <label for="firstName">Prénom :</label>
+            <input type="text" name="firstName" value="<?= $user['firstName'] ?>" placeholder=" * First Name">
+            <label for="lastName">Nom :</label>
+            <input type="text" name="lastName" value="<?= $user['lastName'] ?>" placeholder=" * Last Name">
+                <input type="submit" value="Enregistré" class="btn-form">
+        </form>
+    </div>
+
+    <div class="form-password">
+        <form method="post" action="<?= url('/my-profile/edit-password') ?>">
+            <input type="hidden" name="id" value="<?= $user['id'] ?>">
+            <label for="password_old">Ancienne mot de passe  :</label>
+            <input type="password" id="password_old" name="password_old" required><br><br>
+            <label for="password">Nouveau mot de passe :</label>
+            <div class="password-input-container">
+                <input type="password" id="password" name="password" required>
+                <div class="img-resize">
+                    <span class="eye-toggle">
+                        <img src="<?= $base_path ?>/asset/img/icon/eye-close.png" alt="logo" class="icon eye">
+                    </span>
+                </div>
+            </div>
+            <input type="submit" value="Réinitialiser">
+        </form>
+    </div>
+</div>

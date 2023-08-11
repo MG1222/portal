@@ -1,0 +1,52 @@
+<div class="my-project">
+    <table class="my-project-table">
+        <caption>Mes Projets</caption>
+        <thead>
+        <tr>
+            <th scope="col">Projet</th>
+            <th scope="col">Période</th>
+            <th scope="col">Type</th>
+            <th scope="col">Commentaire</th>
+            <th scope="col">Snapshot</th>
+            <th scope="col">Dashboard</th>
+            <?php if(auth()->isAdmin()): ?>
+            <th scope="col">Modifier</th>
+            <?php endif; ?>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($projects as $project): ?>
+            <tr>
+                <td data-label="Projet"><a href="<?= url('/project?id='. $project['id']) ?>"> <?= $project['name'] ?></a></td>
+                <td data-label="Période"><?= $project['period'] ?></td>
+                <td data-label="Type"><?= $project['type_project'] ?></td>
+                <td data-label="Commentaire"><?= $project['comment'] ?></td>
+                <td data-label="Snapshot"><a href="<?= $project['link_snapshot'] ?>" target="_blank">lien</a></td>
+                <td data-label="Dashboard"><a href="<?= $project['link_dashboard'] ?>" target="_blank">lien</a></td>
+                <?php if (auth()->superAdmin() || auth()->canEdit() == $project['type_id']) : ?>
+                <td data-label="Modifier">
+                    <button class="toggle-form">Edit</button>
+                </td>
+                <?php endif; ?>
+            </tr>
+            <tr class="form-row hidden">
+                <td colspan="7">
+                    <form method="post" action="<?= url('/project/update') ?>">
+                        <input type="hidden" name="id" value="<?= $project['id'] ?>">
+                        <input type="text" name="name" placeholder="* Projet" class="form-control" pattern=".{3,}" title="Le nom du projet doit contenir au moins 3 caractères" value="<?= htmlspecialchars($project['name']) ?>" required>
+                        <input type="date" name="periode" placeholder="Période" class="form-control" value="<?= htmlspecialchars($project['period']) ?>">
+
+                        <input type="text" name="comment" placeholder="Commentaire" class="form-control" value="<?= htmlspecialchars($project['comment']) ?>">
+                        <input type="text" name="link_snapshot" placeholder="Snapshot" class="form-control" value="<?= htmlspecialchars($project['link_snapshot']) ?>">
+                        <input type="text" name="link_dashboard" placeholder="Dashboard" class="form-control" value="<?= htmlspecialchars($project['link_dashboard']) ?>">
+                        <?php if (auth()->superAdmin() || auth()->canEdit() == $project['type_id']) : ?>
+                            <button class="toggle-form">Modifier</button>
+                            <input type="submit" value="Enregistré" class="btn-form">
+                        <?php endif; ?>
+                    </form>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>

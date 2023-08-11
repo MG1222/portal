@@ -1,0 +1,56 @@
+<?php if (flashBag()->has('success')): ?>
+    <div class="success">
+        <p class="alert"><?= flashBag()->get('success') ?></p>
+        <span class="bnt-close">x</span>
+    </div>
+<?php elseif (flashBag()->has('error')): ?>
+    <div class="error">
+        <p class="alert"><?= flashBag()->get('error') ?></p>
+        <span class="bnt-close">x</span>
+    </div>
+<?php endif; ?>
+
+<div class="form">
+    <h1>Créez un nouveau projet</h1>
+
+
+    <div class="form-new-project">
+
+
+        <form method="post" action="<?= url('/admin/store-project') ?>">
+            <div class="checkbox">
+                <input type="checkbox" id="checkbox_user" name="checkbox_user">
+                <label for="checkbox_user">Créer un projet pour utilisateur</label>
+                <input type="checkbox" id="checkbox_admin" name="checkbox_admin">
+                <label for="checkbox_admin">Créer un projet pour admin</label>
+            </div>
+            <select name="user_id" id="user_id"  class="form-control hidden">
+                <option value="" selected="selected" hidden="hidden">* Sélectionnez un utilisateur</option>
+                <?php foreach ($users as $user): ?>
+                    <option value="<?= $user['id'] ?>"><?= $user['email'] ?></option>
+                <?php endforeach; ?>
+            </select>
+            <select name="admin_id" id="admin_id"  class="form-control hidden">
+                <option value="" selected="selected" hidden="hidden">* Sélectionnez un admin</option>
+                <?php foreach ($admins as $admin): ?>
+                    <option value="<?= $admin['id'] ?>"><?= $admin['email'] ?></option>
+                <?php endforeach; ?>
+            </select>
+
+
+            <input type="text" name="name" placeholder=" * Titre" class="form-control" pattern=".{3,}" title="Le titre doit contenir au moins 3 caractères" value="<?= isset($_POST['name']) ? htmlspecialchars($_POST['name']) : '' ?>">
+            <input type="date" name="period" placeholder=" * Période" class="form-control" value="<?= isset($_POST['period']) ? htmlspecialchars($_POST['period']) : '' ?>">
+            <input type="text" name="comment" placeholder=" * Commentaire" class="form-control" pattern=".{5,}" title="Le commentaire doit contenir au moins 5 caractères" value="<?= isset($_POST['comment']) ? htmlspecialchars($_POST['comment']) : '' ?>">
+            <select name="type_id" id="type_id" required class="form-control">
+                <option value="" selected="selected" hidden="hidden">* Type de projet</option>
+                <?php foreach ($types as $type_id => $type_name): ?>
+                    <option value="<?= $type_id ?>"><?= $type_name ?></option>
+                <?php endforeach; ?>
+            </select>
+            <input type="text" name="link_snapshot" placeholder="Lien snapshot" class="form-control" value="<?= isset($_POST['link_snapshot']) ? htmlspecialchars($_POST['link_snapshot']) : '' ?>">
+            <input type="text" name="link_dashboard" placeholder="Lien dashboard" class="form-control" value="<?= isset($_POST['link_dashboard']) ? htmlspecialchars($_POST['link_dashboard']) : '' ?>">
+            <input type="submit" value="Enregistrer" class="btn-form">
+        </form>
+
+    </div>
+</div>

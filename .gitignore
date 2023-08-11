@@ -1,0 +1,11 @@
+# macOS Files
+.DS_Store
+# idea filles
+.idea/**
+config/database.php
+*.log
+*.documents
+/vendor/
+composer.phar
+composer.lock
+dumpSQL.sql

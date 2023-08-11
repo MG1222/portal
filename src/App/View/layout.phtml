@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" type="image/x-icon" href="<?= $base_path ?>/asset/img/logo.ico" />
+    <link rel="stylesheet" href="<?= $base_path ?>/asset/css/main.css">
+    <script type="module" src="<?= $base_path ?>/asset/js/main.js"></script>
+
+    <title>PH Portail</title>
+</head>
+<body>
+    <!--HEADER-->
+
+    <header class="header">
+        <nav class="nav">
+            <div class="img-resize">
+                <span>
+                    <img src="<?= $base_path ?>/asset/img/PHNudgeTransparent.png" alt="logo" class="logo-PH">
+                </span>
+            </div>
+            <?php if (auth()->isAuthenticated()): ?>
+                <div class="user">
+                    <div class="user-name">
+                        <?php if (auth()->getFullName()): ?>
+                            <p><?= auth()->getFullName() ?></p>
+                        <?php else: ?>
+                            <p><?= auth()->getEmail() ?></p>
+                        <?php endif ?>
+                        <a class="nav-link" aria-current="page" href="<?= url('/logout') ?>">
+                            <img src="<?= $base_path ?>/asset/img/icon/logout-icon.svg" alt="Déconnexion" class="icon">
+                        </a>
+                    </div>
+                </div>
+            <?php endif ?>
+
+        </nav>
+    </header>
+    <div class="container">
+        <?php if (auth()->isAuthenticated()): ?>
+
+            <aside class="sidebar">
+                <div class="sidebar-menu">
+                    <?php if(!auth()->isAdmin()): ?>
+                        <a href="<?= url('/dashboard') ?>">
+                            <div class="img-resize">
+                                <span><img src="<?= $base_path ?>/asset/img/icon/dashboard-icon2.svg" class="icon"></span>
+                            </div>
+                            <span class="menu-text">Mon Dashboard</span>
+                        </a>
+                        <a href="<?= url('/my-profile/edit?id='.auth()->getUserId()) ?>">
+                            <div class="img-resize">
+                                <span><img src="<?= $base_path ?>/asset/img/icon/user-icon-1.svg" class="icon"></span>
+                            </div>
+                            <span class="menu-text">Mon Profil</span>
+                        </a>
+                        <a href="<?= url('/my-projects?id='. auth()->getUserId()) ?>">
+                            <div class="img-resize">
+                                <span><img src="<?= $base_path ?>/asset/img/icon/project-icon-1.svg" class="icon"></span>
+                            </div>
+                            <span class="menu-text">Mes Projets</span>
+                        </a>
+                        <a href="<?= url('/my-documents?id='. auth()->getUserId()) ?>">
+                            <div class="img-resize">
+                                <span><img src="<?= $base_path ?>/asset/img/icon/document-icon-1.svg" class="icon"></span>
+                            </div>
+                            <span class="menu-text">Mes Documents</span>
+                        </a>
+                    <?php endif ?>
+
+                    <?php if(auth()->isAdmin()): ?>
+                        <div class="dropdown">
+                            <div>
+                                <a href="<?= url('/admin-dashboard') ?>">
+                                    <div class="img-resize">
+                                        <span><img src="<?= $base_path ?>/asset/img/icon/admin-icon-1.svg" class="icon"></span>
+                                    </div>
+                                    <span class="menu-text">Administration</span>
+                                </a>
+                                <span class="dropdown-toggle">+</span>
+                            </div>
+                            <ul class="dropdown-menu dropdown-menu hidden">
+                                <li><a href="<?= url('/admin-create-user') ?>">Créer un utilisateur</a></li>
+                                <li><a href="<?= url('/admin-create-project') ?>">Créer un projet</a></li>
+                                <li><a href="<?= url('/admin-create-document') ?>">Créer un document</a></li>
+                            </ul>
+                        </div>
+                        <a href="<?= url('/admin-profile?id='.auth()->getUserId()) ?>">
+                            <div class="img-resize">
+                                <span><img src="<?= $base_path ?>/asset/img/icon/user-icon-1.svg" class="icon"></span>
+                            </div>
+                            <span class="menu-text">Mon Profil</span>
+                        </a>
+                        <a href="<?= url('/admin/personal-dashboard') ?>">
+                            <div class="img-resize">
+                                <span><img src="<?= $base_path ?>/asset/img/icon/dashboard-icon2.svg" class="icon"></span>
+                            </div>
+                            <span class="menu-text">Mon Dashboard</span>
+                        </a>
+                        <a href="<?= url('/my-projects?id='. auth()->getUserId()) ?>">
+                            <div class="img-resize">
+                                <span><img src="<?= $base_path ?>/asset/img/icon/project-icon-1.svg" class="icon"></span>
+                            </div>
+                            <span class="menu-text">Mes Projets</span>
+                        </a>
+                        <a href="<?= url('/my-documents?id='. auth()->getUserId()) ?>">
+                            <div class="img-resize">
+                                <span><img src="<?= $base_path ?>/asset/img/icon/document-icon-1.svg" class="icon"></span>
+                            </div>
+                            <span class="menu-text">Mes Documents</span>
+                        </a>
+
+
+                    <?php endif ?>
+                </div>
+            </aside>
+
+
+
+        <?php endif ?>
+
+
+
+        <!--CONTENT-->
+        <main class="main">
+
+                <?php require_once $template.'.phtml' ?>
+        </main>
+    </div>
+
+
+
+</body>
+</html>

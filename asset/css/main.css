@@ -1,0 +1,887 @@
+.login {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.login .form-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  flex: 1;
+}
+.login .form-login h1 {
+  font-weight: 600;
+  letter-spacing: 0.2rem;
+  font-size: 2rem;
+  color: #005900;
+}
+.login .form-login .info-link {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+}
+.login .form-login a {
+  color: #005900;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.login .form-login form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+}
+.login .form-login form .btn-form {
+  width: 14rem;
+  height: 3.5rem;
+  border-radius: 2rem;
+  border: 1px solid;
+  background-color: #005900;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+}
+.login .form-login form .btn-form:hover {
+  background-color: #ffffff;
+  color: #005900;
+  border: 1px solid #005900;
+}
+.login .form-login form .input-group {
+  display: flex;
+  flex-direction: row;
+}
+.login .form-login form .input-group .img-resize {
+  width: 3rem;
+  height: auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.login .form-login form .input-group .img-resize > span {
+  display: block;
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+.login .form-login form .input-group .img-resize > span .icon {
+  max-width: 100%;
+  height: auto;
+  display: inline-block;
+  width: 18rem;
+}
+.login .form-login form .input-group input[type=password] {
+  height: 2.5rem;
+  letter-spacing: 0.5rem;
+}
+.login .form-login form .input-group input {
+  width: 21rem;
+  height: 2.5rem;
+  border: none;
+  border-bottom: 1px solid #005900;
+}
+.login .form-login form .input-group input:focus {
+  outline: none;
+  border-bottom: 2px solid #005900;
+}
+.login .img-resize {
+  width: 40%;
+  height: auto;
+}
+.login .img-resize > span {
+  display: block;
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+.login .img-resize > span .logo-PH {
+  max-width: 100%;
+  height: auto;
+  display: inline-block;
+  width: 18rem;
+}
+
+@font-face {
+  font-family: "Roboto Light";
+  src: url("../font/Roboto-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto Regular";
+  src: url("../font/Roboto-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto Thin";
+  src: url("../font/Roboto-Thin.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto Bold";
+  src: url("../font/Roboto-Bold.ttf") format("truetype");
+}
+.header {
+  width: 100%;
+}
+.header .nav {
+  background: rgb(255, 255, 255);
+  background: linear-gradient(84deg, rgba(255, 255, 255, 0.9262298669) 23%, rgb(18, 130, 18) 68%, rgb(20, 58, 1) 100%);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 4rem;
+}
+.header .nav .user {
+  width: 20rem;
+}
+.header .nav .user .user-name {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: #cccccc;
+}
+.header .nav .user .user-name a {
+  color: #cccccc;
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+}
+.header .nav .user .user-name a .icon {
+  display: block;
+  width: 1.2rem;
+  height: 1.2rem;
+}
+.header .nav .img-resize {
+  max-width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header .nav .img-resize > span {
+  display: block;
+  width: 80%;
+  height: auto;
+  text-align: center;
+}
+.header .nav .img-resize > span .logo-PH {
+  max-width: 100%;
+  height: auto;
+  display: inline-block;
+  width: 18rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 100vh;
+}
+.container .sidebar {
+  min-width: 15rem;
+  background: #f5f5f5;
+  display: flex;
+  justify-content: center;
+}
+.container .sidebar .sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  height: 36rem;
+}
+.container .sidebar .sidebar-menu .hidden {
+  display: none;
+}
+.container .sidebar .sidebar-menu .dropdown {
+  display: flex;
+  flex-direction: column;
+}
+.container .sidebar .sidebar-menu .dropdown div {
+  display: flex;
+  gap: 1rem;
+  flex-direction: row;
+  align-items: center;
+}
+.container .sidebar .sidebar-menu .dropdown .dropdown-toggle {
+  font-size: 1.2rem;
+  color: #005900;
+  cursor: pointer;
+}
+.container .sidebar .sidebar-menu .dropdown .dropdown-menu {
+  list-style: none;
+  padding-top: 1rem;
+}
+.container .sidebar .sidebar-menu .dropdown .dropdown-menu li {
+  padding: 0.2rem;
+}
+.container .sidebar .sidebar-menu a {
+  color: #005900;
+  text-decoration: none;
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+}
+.container .sidebar .sidebar-menu a .img-resize {
+  width: 2.2rem;
+  height: 2.2rem;
+}
+.container .sidebar .sidebar-menu a .img-resize span {
+  display: block;
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+.container .sidebar .sidebar-menu a .img-resize span .icon {
+  max-width: 100%;
+  height: auto;
+  display: inline-block;
+  width: 18rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .container .sidebar {
+    min-width: 6rem;
+  }
+  .container .sidebar .sidebar-menu a {
+    gap: 0;
+  }
+  .container .sidebar .sidebar-menu a .img-resize + span {
+    display: none;
+  }
+}
+.dashboard,
+.main-admin,
+.my-project,
+.my-document {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.dashboard table,
+.dashboard .my-project-table,
+.dashboard .my-document-table,
+.main-admin table,
+.main-admin .my-project-table,
+.main-admin .my-document-table,
+.my-project table,
+.my-project .my-project-table,
+.my-project .my-document-table,
+.my-document table,
+.my-document .my-project-table,
+.my-document .my-document-table {
+  border: 1px solid #d0d0d0;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+}
+.dashboard table caption,
+.dashboard .my-project-table caption,
+.dashboard .my-document-table caption,
+.main-admin table caption,
+.main-admin .my-project-table caption,
+.main-admin .my-document-table caption,
+.my-project table caption,
+.my-project .my-project-table caption,
+.my-project .my-document-table caption,
+.my-document table caption,
+.my-document .my-project-table caption,
+.my-document .my-document-table caption {
+  font-size: 1.5em;
+  margin: 0.5em 0 0.75em;
+}
+.dashboard table thead,
+.dashboard .my-project-table thead,
+.dashboard .my-document-table thead,
+.main-admin table thead,
+.main-admin .my-project-table thead,
+.main-admin .my-document-table thead,
+.my-project table thead,
+.my-project .my-project-table thead,
+.my-project .my-document-table thead,
+.my-document table thead,
+.my-document .my-project-table thead,
+.my-document .my-document-table thead {
+  border: 1px solid #d0d0d0;
+  border-bottom: 2px solid #d0d0d0;
+  margin: 0;
+  padding: 0;
+  background: #d0d0d0;
+}
+.dashboard table thead tr,
+.dashboard .my-project-table thead tr,
+.dashboard .my-document-table thead tr,
+.main-admin table thead tr,
+.main-admin .my-project-table thead tr,
+.main-admin .my-document-table thead tr,
+.my-project table thead tr,
+.my-project .my-project-table thead tr,
+.my-project .my-document-table thead tr,
+.my-document table thead tr,
+.my-document .my-project-table thead tr,
+.my-document .my-document-table thead tr {
+  border: 1px solid #d0d0d0;
+  margin: 0;
+  padding: 0;
+}
+.dashboard table thead tr th,
+.dashboard .my-project-table thead tr th,
+.dashboard .my-document-table thead tr th,
+.main-admin table thead tr th,
+.main-admin .my-project-table thead tr th,
+.main-admin .my-document-table thead tr th,
+.my-project table thead tr th,
+.my-project .my-project-table thead tr th,
+.my-project .my-document-table thead tr th,
+.my-document table thead tr th,
+.my-document .my-project-table thead tr th,
+.my-document .my-document-table thead tr th {
+  font-size: 0.85em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid #d0d0d0;
+  margin: 0;
+  padding: 0.625em;
+  text-align: center;
+}
+.dashboard table tbody,
+.dashboard .my-project-table tbody,
+.dashboard .my-document-table tbody,
+.main-admin table tbody,
+.main-admin .my-project-table tbody,
+.main-admin .my-document-table tbody,
+.my-project table tbody,
+.my-project .my-project-table tbody,
+.my-project .my-document-table tbody,
+.my-document table tbody,
+.my-document .my-project-table tbody,
+.my-document .my-document-table tbody {
+  border: 1px solid #d0d0d0;
+  margin: 0;
+  padding: 0;
+}
+.dashboard table tbody tr:nth-child(even),
+.dashboard .my-project-table tbody tr:nth-child(even),
+.dashboard .my-document-table tbody tr:nth-child(even),
+.main-admin table tbody tr:nth-child(even),
+.main-admin .my-project-table tbody tr:nth-child(even),
+.main-admin .my-document-table tbody tr:nth-child(even),
+.my-project table tbody tr:nth-child(even),
+.my-project .my-project-table tbody tr:nth-child(even),
+.my-project .my-document-table tbody tr:nth-child(even),
+.my-document table tbody tr:nth-child(even),
+.my-document .my-project-table tbody tr:nth-child(even),
+.my-document .my-document-table tbody tr:nth-child(even) {
+  background: #f5f5f5;
+}
+.dashboard table tbody tr,
+.dashboard .my-project-table tbody tr,
+.dashboard .my-document-table tbody tr,
+.main-admin table tbody tr,
+.main-admin .my-project-table tbody tr,
+.main-admin .my-document-table tbody tr,
+.my-project table tbody tr,
+.my-project .my-project-table tbody tr,
+.my-project .my-document-table tbody tr,
+.my-document table tbody tr,
+.my-document .my-project-table tbody tr,
+.my-document .my-document-table tbody tr {
+  border: 1px solid #d0d0d0;
+  margin: 0;
+  padding: 0;
+}
+.dashboard table tbody tr td,
+.dashboard .my-project-table tbody tr td,
+.dashboard .my-document-table tbody tr td,
+.main-admin table tbody tr td,
+.main-admin .my-project-table tbody tr td,
+.main-admin .my-document-table tbody tr td,
+.my-project table tbody tr td,
+.my-project .my-project-table tbody tr td,
+.my-project .my-document-table tbody tr td,
+.my-document table tbody tr td,
+.my-document .my-project-table tbody tr td,
+.my-document .my-document-table tbody tr td {
+  margin: 0;
+  padding: 0.625em;
+  text-align: center;
+}
+.dashboard table tbody button,
+.dashboard table tbody a,
+.dashboard .my-project-table tbody button,
+.dashboard .my-project-table tbody a,
+.dashboard .my-document-table tbody button,
+.dashboard .my-document-table tbody a,
+.main-admin table tbody button,
+.main-admin table tbody a,
+.main-admin .my-project-table tbody button,
+.main-admin .my-project-table tbody a,
+.main-admin .my-document-table tbody button,
+.main-admin .my-document-table tbody a,
+.my-project table tbody button,
+.my-project table tbody a,
+.my-project .my-project-table tbody button,
+.my-project .my-project-table tbody a,
+.my-project .my-document-table tbody button,
+.my-project .my-document-table tbody a,
+.my-document table tbody button,
+.my-document table tbody a,
+.my-document .my-project-table tbody button,
+.my-document .my-project-table tbody a,
+.my-document .my-document-table tbody button,
+.my-document .my-document-table tbody a {
+  text-decoration: none;
+  font-size: 1rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  outline: none;
+  color: #005900;
+}
+.dashboard table tbody button:hover,
+.dashboard table tbody a:hover,
+.dashboard .my-project-table tbody button:hover,
+.dashboard .my-project-table tbody a:hover,
+.dashboard .my-document-table tbody button:hover,
+.dashboard .my-document-table tbody a:hover,
+.main-admin table tbody button:hover,
+.main-admin table tbody a:hover,
+.main-admin .my-project-table tbody button:hover,
+.main-admin .my-project-table tbody a:hover,
+.main-admin .my-document-table tbody button:hover,
+.main-admin .my-document-table tbody a:hover,
+.my-project table tbody button:hover,
+.my-project table tbody a:hover,
+.my-project .my-project-table tbody button:hover,
+.my-project .my-project-table tbody a:hover,
+.my-project .my-document-table tbody button:hover,
+.my-project .my-document-table tbody a:hover,
+.my-document table tbody button:hover,
+.my-document table tbody a:hover,
+.my-document .my-project-table tbody button:hover,
+.my-document .my-project-table tbody a:hover,
+.my-document .my-document-table tbody button:hover,
+.my-document .my-document-table tbody a:hover {
+  color: #011f01;
+}
+.dashboard .hidden,
+.main-admin .hidden,
+.my-project .hidden,
+.my-document .hidden {
+  display: none;
+}
+.dashboard .create_admin,
+.main-admin .create_admin,
+.my-project .create_admin,
+.my-document .create_admin {
+  display: flex;
+  gap: 1rem;
+}
+.dashboard .create_admin input[name=role_new],
+.main-admin .create_admin input[name=role_new],
+.my-project .create_admin input[name=role_new],
+.my-document .create_admin input[name=role_new] {
+  display: none;
+}
+.dashboard .create_admin #role_old,
+.main-admin .create_admin #role_old,
+.my-project .create_admin #role_old,
+.my-document .create_admin #role_old {
+  display: none;
+}
+
+@media screen and (max-width: 950px) {
+  .dashboard,
+  .main-admin,
+  .my-project,
+  .my-document {
+    display: block;
+  }
+  .dashboard table,
+  .main-admin table,
+  .my-project table,
+  .my-document table {
+    border: 0;
+  }
+  .dashboard table caption,
+  .main-admin table caption,
+  .my-project table caption,
+  .my-document table caption {
+    font-size: 1.3em;
+  }
+  .dashboard table thead,
+  .main-admin table thead,
+  .my-project table thead,
+  .my-document table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  .dashboard table tr,
+  .main-admin table tr,
+  .my-project table tr,
+  .my-document table tr {
+    border-bottom: 3px solid #d0d0d0;
+    display: block;
+    margin-bottom: 0.625em;
+  }
+  .dashboard table td,
+  .main-admin table td,
+  .my-project table td,
+  .my-document table td {
+    border-bottom: 1px solid #d0d0d0;
+    display: block;
+    font-size: 0.8em;
+    text-align: right;
+  }
+  .dashboard td[data-label=Projet],
+  .dashboard td[data-label=Email],
+  .main-admin td[data-label=Projet],
+  .main-admin td[data-label=Email],
+  .my-project td[data-label=Projet],
+  .my-project td[data-label=Email],
+  .my-document td[data-label=Projet],
+  .my-document td[data-label=Email] {
+    background: #d9d9d9;
+  }
+  .dashboard table td::before,
+  .main-admin table td::before,
+  .my-project table td::before,
+  .my-document table td::before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  .dashboard table td:last-child,
+  .main-admin table td:last-child,
+  .my-project table td:last-child,
+  .my-document table td:last-child {
+    border-bottom: 0;
+  }
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-top: 3rem;
+}
+.form h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin: 0;
+  color: #011f01;
+}
+.form p {
+  text-align: center;
+  font-size: 0.9rem;
+  margin: 0;
+  color: #011f01;
+}
+.form .form-reset-password,
+.form .form-forget-password,
+.form .form-edit,
+.form .form-password,
+.form .form-new-project,
+.form .form-new-document,
+.form .form-new-user {
+  border-radius: 5px;
+  background-color: #ffffff;
+  padding: 20px;
+  width: 50%;
+  margin: 3rem auto;
+}
+.form .form-reset-password .checkbox,
+.form .form-forget-password .checkbox,
+.form .form-edit .checkbox,
+.form .form-password .checkbox,
+.form .form-new-project .checkbox,
+.form .form-new-document .checkbox,
+.form .form-new-user .checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+.form .form-reset-password .password-input-container,
+.form .form-forget-password .password-input-container,
+.form .form-edit .password-input-container,
+.form .form-password .password-input-container,
+.form .form-new-project .password-input-container,
+.form .form-new-document .password-input-container,
+.form .form-new-user .password-input-container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.form .form-reset-password .img-resize,
+.form .form-forget-password .img-resize,
+.form .form-edit .img-resize,
+.form .form-password .img-resize,
+.form .form-new-project .img-resize,
+.form .form-new-document .img-resize,
+.form .form-new-user .img-resize {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0.7rem;
+  height: 2.5rem;
+}
+.form .form-reset-password .eye,
+.form .form-forget-password .eye,
+.form .form-edit .eye,
+.form .form-password .eye,
+.form .form-new-project .eye,
+.form .form-new-document .eye,
+.form .form-new-user .eye {
+  height: 100%;
+}
+.form .form-reset-password input[type=text], .form .form-reset-password select, .form .form-reset-password input[type=password],
+.form .form-forget-password input[type=text],
+.form .form-forget-password select,
+.form .form-forget-password input[type=password],
+.form .form-edit input[type=text],
+.form .form-edit select,
+.form .form-edit input[type=password],
+.form .form-password input[type=text],
+.form .form-password select,
+.form .form-password input[type=password],
+.form .form-new-project input[type=text],
+.form .form-new-project select,
+.form .form-new-project input[type=password],
+.form .form-new-document input[type=text],
+.form .form-new-document select,
+.form .form-new-document input[type=password],
+.form .form-new-user input[type=text],
+.form .form-new-user select,
+.form .form-new-user input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #011f01;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.form .form-reset-password input[type=date],
+.form .form-forget-password input[type=date],
+.form .form-edit input[type=date],
+.form .form-password input[type=date],
+.form .form-new-project input[type=date],
+.form .form-new-document input[type=date],
+.form .form-new-user input[type=date] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #011f01;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  color: #011f01;
+  font-size: 1rem;
+}
+.form .form-reset-password input[type=submit],
+.form .form-forget-password input[type=submit],
+.form .form-edit input[type=submit],
+.form .form-password input[type=submit],
+.form .form-new-project input[type=submit],
+.form .form-new-document input[type=submit],
+.form .form-new-user input[type=submit] {
+  width: 100%;
+  background-color: #005900;
+  color: #ffffff;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.form .form-reset-password input[type=submit]:hover,
+.form .form-forget-password input[type=submit]:hover,
+.form .form-edit input[type=submit]:hover,
+.form .form-password input[type=submit]:hover,
+.form .form-new-project input[type=submit]:hover,
+.form .form-new-document input[type=submit]:hover,
+.form .form-new-user input[type=submit]:hover {
+  background-color: #011f01;
+}
+
+.alert {
+  padding: 0.5rem;
+  font-weight: bold;
+}
+
+.success,
+.error {
+  display: flex;
+}
+
+.success,
+.error {
+  padding: 1rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.error {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.bnt-close {
+  cursor: pointer;
+  padding: 1rem;
+}
+
+.bnt-close:hover {
+  opacity: 0.5;
+}
+
+.header .menu {
+  list-style: none;
+}
+.header .menu li {
+  display: inline-block;
+  margin: 0 1rem;
+}
+.header .menu li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.2rem;
+}
+.header .menu li a:hover {
+  color: #fff;
+}
+
+.jumbotron-error {
+  display: flex;
+  flex-direction: column-reverse;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+.jumbotron-error .jumbotron-error-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto Regular", serif;
+}
+
+.container .main {
+  width: 70%;
+  flex: 1;
+  padding: 1rem;
+}
+.container .main a {
+  text-decoration: none;
+  font-size: 1rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  outline: none;
+  color: #005900;
+}
+.container .main .popup-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fdcdcd;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 1rem;
+  display: none;
+}
+.container .main .popup-container p {
+  margin: 0;
+}
+.container .main .popup-container .btn-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
+}
+.container .main .popup-container .btn-cancel,
+.container .main .popup-container .btn-confirm {
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: #ffffff;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+.container .main .popup-container .btn-cancel {
+  background-color: #9b9797;
+}
+.container .main .popup-container .btn-confirm {
+  background-color: #c80303;
+}
+.container .main .hidden {
+  display: none;
+}
+.container .main .popup-container.show {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  height: 20%;
+  width: 32%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.container .main .form-row.hidden {
+  display: none;
+}
+.container .popup-container.show {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  height: 30%;
+  width: 32%;
+}
+
+/*# sourceMappingURL=main.css.map */

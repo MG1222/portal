@@ -1,0 +1,97 @@
+@use "colors" as c;
+
+.container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 100vh;
+
+  .sidebar {
+    min-width: 15rem;
+    background: c.$bs-grey-light;
+    display: flex;
+    justify-content: center;
+
+    .sidebar-menu {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 2rem;
+      height: 36rem;
+
+     .hidden {
+        display: none;
+      }
+      .dropdown {
+        display: flex;
+        flex-direction: column;
+        div {
+          display: flex;
+          gap: 1rem;
+          flex-direction: row;
+          align-items: center;
+        }
+        .dropdown-toggle {
+          font-size: 1.2rem;
+          color: c.$bs-green;
+          cursor: pointer;
+        }
+
+        .dropdown-menu {
+         list-style: none;
+          padding-top: 1rem;
+          li {
+            padding: 0.2rem;
+          }
+
+        }
+      }
+
+      a {
+        color: c.$bs-green;
+        text-decoration: none;
+        font-size: 1.2rem;
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        align-items: center;
+
+        .img-resize {
+          width: 2.2rem;
+          height: 2.2rem;
+
+          span {
+            display: block;
+            width: 100%;
+            height: auto;
+            text-align: center;
+
+            .icon {
+              max-width: 100%;
+              height: auto;
+              display: inline-block;
+              width: 18rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    .sidebar {
+      min-width: 6rem;
+      .sidebar-menu {
+        a {
+          gap: 0; // Réduire l'espacement pour ne montrer que l'icône
+
+          .img-resize + span {
+            display: none; // Cache le texte
+          }
+        }
+      }
+    }
+  }
+}

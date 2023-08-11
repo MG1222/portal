@@ -1,0 +1,58 @@
+
+<div class="dashboard">
+    <?php if (flashBag()->has('success')): ?>
+        <div class="success">
+            <p class="alert"><?= flashBag()->get('success') ?></p>
+            <span class="bnt-close">x</span>
+        </div>
+    <?php elseif (flashBag()->has('error')): ?>
+        <div class="error">
+            <p class="alert"><?= flashBag()->get('error') ?></p>
+            <span class="bnt-close">x</span>
+        </div>
+    <?php endif; ?>
+
+    <table>
+        <caption>Mes Projets</caption>
+        <thead>
+        <tr>
+            <th scope="col">Projet</th>
+            <th scope="col">Titre</th>
+            <th scope="col">Commentaire</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($projects as $project): ?>
+            <tr>
+                <td data-label="Projet">
+                    <a href="<?= url('/project?id='. $project['id']) ?>"> <?= $project['name'] ?></a></td>
+                <td data-label="Titre"><?= $project['title'] ?? '' ?></td>
+                <td data-label="Commentaire"><?= $project['comment'] ?? '' ?></td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+
+    <table>
+        <caption>Mes Documents</caption>
+        <thead>
+        <tr>
+            <th scope="col">Document</th>
+            <th scope="col">Projet</th>
+            <th scope="col">Date</th>
+            <th scope="col">PDF</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($documents as $document): ?>
+            <tr>
+                <td data-label="Document"><?= $document['name'] ?></td>
+                <td data-label="Projet"><?= $document['project_name'] ?></td>
+                <td data-label="Date"><?= $document['period'] ?></td>
+                <td data-label="Document"><a href="<?= '/phPortail/asset/documents/' . $document['document'] ?>" target="_blank"><?= $document['name'] ?></a></td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+
+</div>

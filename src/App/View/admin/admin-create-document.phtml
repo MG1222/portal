@@ -1,0 +1,56 @@
+<?php if (flashBag()->has('success')): ?>
+    <div class="success">
+        <p class="alert"><?= flashBag()->get('success') ?></p>
+        <span class="bnt-close">x</span>
+    </div>
+<?php elseif (flashBag()->has('error')): ?>
+    <div class="error">
+        <p class="alert"><?= flashBag()->get('error') ?></p>
+        <span class="bnt-close">x</span>
+    </div>
+<?php endif; ?>
+
+<div class="form">
+    <h1>Créez un nouveau Document</h1>
+    <p>Attention : avant de créer un nouveau document, assurez-vous que l'utilisateur est associé à un projet existant.</p>
+
+    <div class="form-new-document">
+
+        <form method="post" action="<?= url('/admin/store-document') ?>" enctype="multipart/form-data">
+            <div class="checkbox">
+                <input type="checkbox" id="checkbox_user" name="checkbox_user">
+                <label for="checkbox_user">Créer un projet pour utilisateur</label>
+                <input type="checkbox" id="checkbox_admin" name="checkbox_admin">
+                <label for="checkbox_admin">Créer un projet pour admin</label>
+            </div>
+            <select name="user_id" id="user_id"  class="form-control hidden">
+                <option value="" selected="selected" hidden="hidden">* Sélectionnez un utilisateur</option>
+                <?php foreach ($users as $user): ?>
+                    <option value="<?= $user['id'] ?>"><?= $user['email'] ?></option>
+                <?php endforeach; ?>
+            </select>
+            <select name="admin_id" id="admin_id"  class="form-control hidden">
+                <option value="" selected="selected" hidden="hidden">* Sélectionnez un admin</option>
+                <?php foreach ($admins as $admin): ?>
+                    <option value="<?= $admin['id'] ?>"><?= $admin['email'] ?></option>
+                <?php endforeach; ?>
+            </select>
+            <label for="name">Titre *</label>
+            <input type="text" name="name" placeholder=" * Titre" class="form-control" pattern=".{3,}" title="Le titre doit contenir au moins 3 caractères" value="<?= isset($_POST['name']) ? htmlspecialchars($_POST['name']) : '' ?>">
+            <label for="period">Période *</label>
+            <input type="date" name="period" placeholder=" * Période" class="form-control" value="<?= isset($_POST['period']) ? htmlspecialchars($_POST['period']) : '' ?>">
+            <label for="comment">Commentaire </label>
+            <input type="text" name="comment" placeholder=" * Commentaire" class="form-control" pattern=".{5,}" title="Le commentaire doit contenir au moins 5 caractères" value="<?= isset($_POST['comment']) ? htmlspecialchars($_POST['comment']) : '' ?>">
+            <select name="project_id" id="project_id" required class="form-control">
+                <option value="" selected="selected" hidden="hidden">* Sélectionnez un projet</option>
+
+                <?php foreach ($projects as $project): ?>
+                    <option value="<?= $project['id'] ?>"><?= $project['name'] ?></option>
+                <?php endforeach; ?>
+            </select>
+            <input type="file" name="document" accept=".pdf" maxSize="1000000" required>
+            <input type="submit" value="Enregistrer" class="btn-form">
+        </form>
+
+    </div>
+</div>

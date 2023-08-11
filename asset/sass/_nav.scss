@@ -1,0 +1,65 @@
+.header {
+  width: 100%;
+
+
+  .nav {
+    background: rgb(255,255,255);
+    background: linear-gradient(84deg, rgba(255,255,255,0.9262298669467787) 23%, rgba(18,130,18,1) 68%, rgba(20,58,1,1) 100%);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 4rem;
+
+
+    .user {
+      width: 20rem;
+      .user-name {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        color: #cccccc;
+
+        a {
+          color: #cccccc;
+          text-decoration: none;
+          font-size: 0.8rem;
+          font-weight: 600;
+          letter-spacing: 0.1rem;
+          text-transform: uppercase;
+
+          .icon {
+            display: block;
+            width: 1.2rem;
+            height: 1.2rem;
+          }
+        }
+      }
+    }
+
+
+
+  .img-resize {
+    max-width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & > span {
+      display: block;
+      width: 80%;
+      height: auto;
+      text-align: center;
+
+      .logo-PH {
+        max-width: 100%;
+        height: auto;
+        display: inline-block;
+        width: 18rem;
+      }
+    }
+  }
+  }
+}

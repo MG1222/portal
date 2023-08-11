@@ -1,0 +1,23 @@
+<div class="my-document">
+    <table class="my-document-table">
+        <caption>Mes Documents</caption>
+        <thead>
+        <tr>
+            <th scope="col">Document</th>
+            <th scope="col">Projet</th>
+            <th scope="col">Date</th>
+            <th scope="col">PDF</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($documents as $document): ?>
+            <tr>
+                <td data-label="Document"><?= $document['name'] ?></td>
+                <td data-label="Projet"><?= $document['project_name'] ?></td>
+                <td data-label="Date"><?= $document['period'] ?></td>
+                <td data-label="Document"><a href="<?= '/portal-website/asset/documents/' . $document['document'] ?>" target="_blank"><?= $document['name'] ?></a></td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>

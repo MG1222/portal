@@ -1,0 +1,52 @@
+<?php if (flashBag()->has('success')): ?>
+    <div class="success">
+        <p class="alert"><?= flashBag()->get('success') ?></p>
+        <span class="bnt-close">x</span>
+    </div>
+<?php elseif (flashBag()->has('error')): ?>
+    <div class="error">
+        <p class="alert"><?= flashBag()->get('error') ?></p>
+        <span class="bnt-close">x</span>
+    </div>
+<?php endif; ?>
+
+<div class="form">
+
+    <h1>Créer un nouveau utilisateur</h1>
+    <div class="form-new-user">
+        <form method="post" action="<?= url('/admin/store-user') ?>" class="create_admin">
+            <label for="email">Email</label>
+            <input type="text" name="email" placeholder=" * Email" class="form-control" value="<?= isset($_POST['email']) ? htmlspecialchars($_POST['email']) : '' ?>">
+            <label for="password">Mot de passe</label>
+            <div class="password-input-container">
+                <input type="password" id="password" name="password" required class="form-control">
+                <div class="img-resize">
+                    <span class="eye-toggle">
+                        <img src="<?= $base_path ?>/asset/img/icon/eye-close.png" alt="logo" class="icon eye">
+                    </span>
+                </div>
+            </div>
+            <label for="role_id">Rôle</label>
+            <select name="role_id" id="role_id" required class="form-control">
+                <option value="" selected="selected" hidden="hidden">* Role</option>
+                <?php foreach ($roles as $role): ?>
+                    <?php if ($role['type_project'] === null): ?>
+                        <option value="<?= $role['id'] ?>"><?= $role['type_project'] ?></option>
+                    <?php else: ?>
+                        <option value="<?= $role['id'] ?>"><?= $role['type_project'] ?></option>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+                <option value="role_new_option">Nouveau rôle</option>
+            </select>
+
+            <input type="text" name="role_new" placeholder="ex. admin synthetic" id="role_new_input" class="form-control">
+
+            <input type="text" name="type_project" placeholder="Type de projet" id="type_project">
+            <label for="firstName">Prénom</label>
+            <input type="text" name="firstName" placeholder="Prénom" class="form-control" value="<?= isset($_POST['firstName']) ? htmlspecialchars($_POST['firstName']) : '' ?>">
+            <label for="lastName">Nom</label>
+            <input type="text" name="lastName" placeholder="Nom" class="form-control" value="<?= isset($_POST['lastName']) ? htmlspecialchars($_POST['lastName']) : '' ?>">
+            <input type="submit" value="Enregistrer" class="btn-form">
+        </form>
+    </div>
+</div>

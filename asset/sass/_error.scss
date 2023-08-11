@@ -1,0 +1,34 @@
+.header {
+.menu {
+  list-style: none;
+  li {
+    display: inline-block;
+    margin: 0 1rem;
+    a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 1.2rem;
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+}
+}
+
+
+.jumbotron-error {
+  display: flex;
+  flex-direction: column-reverse;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+    align-content: center;
+
+  .jumbotron-error-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+}

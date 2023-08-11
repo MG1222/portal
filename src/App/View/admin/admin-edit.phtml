@@ -1,0 +1,29 @@
+<?php if (flashBag()->has('success')): ?>
+    <div class="success">
+        <p class="alert"><?= flashBag()->get('success') ?></p>
+        <span class="bnt-close">x</span>
+    </div>
+<?php elseif (flashBag()->has('error')): ?>
+    <div class="error">
+        <p class="alert"><?= flashBag()->get('error') ?></p>
+        <span class="bnt-close">x</span>
+    </div>
+<?php endif; ?>
+
+<form method="post" action="<?= url('/admin/update-admin') ?>">
+    <input type="hidden" name="id" value="<?= $admin['id'] ?>">
+    <input type="text" name="email" value="<?= $admin['email'] ?>" placeholder=" * Email">
+    <select name="role_id" id="role_id" required>
+        <option value="" selected="selected" hidden="hidden">* Role</option>
+        <?php foreach ($roles as $role): ?>
+            <?php if ($admin['role_id'] === $role['id']): ?>
+                <option value="<?= $role['id'] ?>" selected><?= $role['name'] ?></option>
+            <?php else: ?>
+                <option value="<?= $role['id'] ?>"><?= $role['name'] ?></option>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    </select>
+    <input type="text" name="firstName" value="<?= $admin['firstName'] ?>" placeholder=" * First Name">
+    <input type="text" name="lastName" value="<?= $admin['lastName'] ?>" placeholder=" * Last Name">
+    <input type="submit" value="Enregistré" class="btn-form">
+</form>

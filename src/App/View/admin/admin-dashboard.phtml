@@ -1,0 +1,129 @@
+<div class="main-admin">
+    <?php if (flashBag()->has('success')): ?>
+        <div class="success">
+            <p class="alert"><?= flashBag()->get('success') ?></p>
+
+            <span class="bnt-close">x</span>
+        </div>
+    <?php elseif (flashBag()->has('error')): ?>
+        <div class="error">
+            <p class="alert"><?= flashBag()->get('error') ?></p>
+            <span class="bnt-close">x</span>
+        </div>
+    <?php endif; ?>
+
+
+    <div class="table-all-users">
+        <table>
+            <caption>Tous les utilisateurs</caption>
+            <thead>
+            <tr>
+                <th>Email</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($users as $user): ?>
+                <tr>
+                    <td data-label="Email"><?= $user['email'] ?></td>
+                    <td data-label="First Name"><?= $user['firstName'] ?? 'Non renseigné' ?></td>
+                    <td data-label="Last Name"><?= $user['lastName'] ?? 'Non renseigné'?></td>
+                    <td data-label="Actions">
+                        <a href="<?= url('/admin/user-dashboard?user_id='. $user['id'])  ?>">Plus</a>
+                        <?php if (auth()->superAdmin()): ?>
+                            <button class="toggle-form">Modifier</button>
+                            <a class="btn-delete" href="#" data-userid="<?= $user['id'] ?>">Supprimer</a>
+                            <div class="popup-container hidden" id="popup-container-<?= $user['id'] ?>">
+                                <div class="popup" id="popup-<?= $user['id'] ?>">
+                                    <p>Êtes-vous sûr de vouloir supprimer <?= $user['firstName'] . ' ' . $user['lastName'] ?> ?</p>
+                                    <div class="btn-container">
+                                        <a href="<?= url('/admin-dashboard') ?>" class="btn-cancel">Annuler</a>
+                                        <a href="<?= url('/delete?user_id='.$user['id']) ?>" class="btn-confirm">Confirmer</a>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                    </td>
+                </tr>
+                <tr class="form-row hidden">
+                    <td colspan="4">
+                        <form method="post" action="<?= url('/my-profile/update') ?>">
+                            <input type="hidden" name="id" value="<?= $user['id'] ?>">
+                            <input type="text" name="email" value="<?= $user['email'] ?>" placeholder=" * Email">
+                            <input type="text" name="firstName" value="<?= $user['firstName'] ?>" placeholder=" * First Name">
+                            <input type="text" name="lastName" value="<?= $user['lastName'] ?>" placeholder=" * Last Name">
+                            <input type="submit" value="Enregistré" class="btn-form">
+                        </form>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+    <div class="table-all-admins">
+        <table>
+            <caption>Tous les admins</caption>
+            <thead>
+            <tr>
+                <th>Email</th>
+                <th>Role</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($admins as $admin): ?>
+                <tr>
+                    <td data-label="Email"><?= $admin['email'] ?></td>
+                    <?php foreach ($roles as $role): ?>
+                        <?php if ($admin['role_id'] === $role['id']): ?>
+                            <td data-label="Role"><?= $role['type_project']?></td>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                    <td data-label="First Name"><?= !empty($admin['firstName']) ? $admin['firstName'] : 'Non renseigné' ?></td>
+                    <td data-label="Last Name"><?= !empty($admin['lastName']) ? $admin['lastName'] : 'Non renseigné' ?></td>
+                    <td data-label="Actions">
+                        <a href="<?= url('/admin/user-dashboard?admin_id='. $admin['id'])  ?>">Plus</a>
+                        <?php if (auth()->superAdmin()): ?>
+                            <button class="toggle-form">Modifier</button>
+                            <a class="btn-delete" href="#" data-userid="<?= $admin['id'] ?>">Supprimer</a>
+                        <?php endif; ?>
+                        <div class="popup-container hidden" id="popup-container-<?= $admin['id'] ?>">
+                            <div class="popup" id="popup-<?= $admin['id'] ?>">
+                                <p>Êtes-vous sûr de vouloir supprimer <?= $admin['firstName'] . ' ' . $admin['lastName'] ?> ?</p>
+                                <div class="btn-container">
+                                    <a href="<?= url('/admin-dashboard') ?>" class="btn-cancel">Annuler</a>
+                                    <a href="<?= url('/delete?admin_id='.$admin['id']) ?>" class="btn-confirm">Confirmer</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="form-row hidden">
+                    <td colspan="5">
+                        <form method="post" action="<?= url('/admin/update-admin') ?>">
+                            <input type="hidden" name="id" value="<?= $admin['id'] ?>">
+                            <input type="text" name="email" value="<?= $admin['email'] ?>" placeholder=" * Email">
+                            <select name="role_id" id="role_id" required>
+                                <option value="" selected="selected" hidden="hidden">* Role</option>
+                                <?php foreach ($roles as $role): ?>
+                                    <?php if ($admin['role_id'] === $role['id']): ?>
+                                        <option value="<?= $role['id'] ?>" selected><?= $role['type_project']?></option>
+                                    <?php else: ?>
+                                        <option value="<?= $role['id'] ?>"><?= $role['type_project'] ?></option>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                            </select>
+                            <input type="text" name="firstName" value="<?= $admin['firstName'] ?>" placeholder=" * First Name">
+                            <input type="text" name="lastName" value="<?= $admin['lastName'] ?>" placeholder=" * Last Name">
+                            <input type="submit" value="Enregistré" class="btn-form">
+                        </form>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>

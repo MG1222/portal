@@ -1,0 +1,46 @@
+
+<div class="login">
+
+    <div class="form-login">
+        <h1>Bienvenue </h1>
+        <?php if (flashBag()->has('error')): ?>
+            <?= flashBag()->get('error') ?>
+        <?php elseif (flashBag()->has('success')): ?>
+            <?= flashBag()->get('success') ?>
+        <?php endif; ?>
+        <form method="post" action="<?= url('/user/login') ?>" >
+            <div class="input-group">
+
+                <div class="img-resize">
+                    <span>
+                        <img src="<?= $base_path ?>/asset/img/icon/email-icon.svg" alt="logo" class="icon">
+                    </span>
+                </div>
+                    <input type="text" name="email" placeholder="name@email.com" autofocus>
+            </div>
+            <div class="input-group">
+                <div class="img-resize">
+                    <span>
+                        <img src="<?= $base_path ?>/asset/img/icon/eye-close.png" alt="logo" class="icon eye">
+                    </span>
+                </div>
+                <input type="password" name="password" placeholder="* * * *" autofocus>
+            </div>
+            <input type="submit" value="Se connecter" class="btn-form">
+            <a href="<?= url('/user/forgot-password') ?>">Mode de passe oublié ? </a>
+        </form>
+
+        <div class="info-link">
+            <a href="https://support-logiciels.atakama-technologies.com/pages/UI.php" target="_blank">Support</a>
+            <a href="mailto:email@example.com">Envoyer Email</a>
+            <a href="<?= url('/admin') ?>">Admin</a>
+        </div>
+
+    </div>
+    <div class="img-resize">
+            <span>
+                <img src="<?= $base_path ?>/asset/img/loginM.svg" alt="logo" class="img-logo">
+            </span>
+    </div>
+
+</div>
